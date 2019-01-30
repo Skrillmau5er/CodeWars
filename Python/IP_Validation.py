@@ -19,17 +19,22 @@
 def is_valid_IP(strng):
     stringy = ''
     for x in range (4) :
-        print(x)
-        print(strng)
-        if x == 3 : 
-            ipnum = int(strng)
+        if x == 3:
+            ipnum = strng
+            print(ipnum)
         else: 
-            ipnum = int(strng[0:strng.find('.')])
-        if(ipnum > 255 or ipnum <= 0) :
+            if strng.find('.') == -1 :
+                return False
+            ipnum = strng[0:strng.find('.')]
+            print(ipnum)
+        if ipnum.isdigit() == False or ipnum[0] == '0' : 
+            return False
+        if(int(ipnum) > 255 or int(ipnum) <= 0) :
             return False
         strng = strng[(strng.find('.') + 1):len(strng)]
     return True
-if(is_valid_IP('1.124.5.0')) :
+
+if(is_valid_IP('12.34.56')) :
     print("Valid")
 else : 
     print("Not Valid")
