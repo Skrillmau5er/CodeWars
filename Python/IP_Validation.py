@@ -22,9 +22,11 @@ def is_valid_IP(strng):
             ipnum = strng
         else: 
             if strng.find('.') == -1 :
-                return False;
+                return False
             ipnum = strng[0:strng.find('.')]
-        if (ipnum.isdigit() == False or ipnum[0] == '0') or (int(ipnum) > 255 or int(ipnum) <= 0): 
+        if ipnum.isdigit() == False or ipnum[0] == '0' : 
+            return False
+        if(int(ipnum) > 255 or int(ipnum) <= 0) :
             return False
         strng = strng[(strng.find('.') + 1):len(strng)]
     return True
