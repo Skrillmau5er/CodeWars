@@ -18,10 +18,18 @@
 
 def is_valid_IP(strng):
     stringy = ''
-    indexplus = 0
     for x in range (4) :
-        index = strng.find('.')
-        stringy += strng[indexplus:(index + 1)]
-        indexplus += (index + 1)
-    return stringy
-print(is_valid_IP('123.444.123.123'))
+        print(x)
+        print(strng)
+        if x == 3 : 
+            ipnum = int(strng)
+        else: 
+            ipnum = int(strng[0:strng.find('.')])
+        if(ipnum > 255 or ipnum <= 0) :
+            return False
+        strng = strng[(strng.find('.') + 1):len(strng)]
+    return True
+if(is_valid_IP('1.124.5.0')) :
+    print("Valid")
+else : 
+    print("Not Valid")
