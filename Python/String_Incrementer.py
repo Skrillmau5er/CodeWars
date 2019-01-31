@@ -16,8 +16,11 @@
 #Attention: If the number has leading zeros the amount of digits should be considered.
 
 def increment_string(strng):
+    i = 0
     for x in strng : 
-        
-    return strng
+        if x.isdigit() == True and x != '0' :
+            return strng[0:i] + str((int(strng[i:len(strng)]) + 1))
+        i += 1
+    return strng + "1"
 
-increment_string("foobar001")
+print(increment_string("foobar13"))
