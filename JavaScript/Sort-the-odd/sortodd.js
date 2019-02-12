@@ -9,5 +9,18 @@
 //sortArray([5, 3, 2, 8, 1, 4]) == [1, 3, 2, 8, 5, 4]
 
 function sortArray(array) {
-    // Return a sorted array.
+    var oddarr = [];
+    for(var i = 0; i < array.length; i++){
+      if(array[i] % 2 == 1){
+        oddarr.push(array[i]);
+      }
+    }
+    oddarr.sort(function(a, b){return a-b});
+    for(var i = 0; i < array.length; i++){
+      if(array[i] % 2 == 1){
+        array[i] = oddarr.shift();
+      }
+    }
   }
+
+  sortArray([1, 3, 2, 8, 5, 4, 11]);
