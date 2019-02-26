@@ -26,5 +26,3 @@ function anagrams(word, words) {
     }
     return returnArray;
 }
-
-console.log(window.anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
