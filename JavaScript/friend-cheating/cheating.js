@@ -40,10 +40,9 @@ tested by way of strings.
 function removeNb (n) {
     let sum = ((Math.pow(n,2) + n) / 2);
     var answer = [];
+    var res = 0;
     for(var i = 1; i <= n; i++){
-        for(var j = 1; j <= n; j++){
-            if((j*i) == (sum-j-i)) answer.push([i,j]);
-        }
+        if(((sum-i)%(i+1) == 0) && ((sum-i)/(i+1) < n)) answer.push([i,((sum-i)/(i+1))]);
     }
     return answer;
 }
