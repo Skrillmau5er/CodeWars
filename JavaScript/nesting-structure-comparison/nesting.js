@@ -21,11 +21,15 @@ For your convenience, there is already a function 'isArray(o)' declared and defi
 */
 
 Array.prototype.sameStructureAs = function (other) {
-    // Return 'true' if and only if 'other' has the same
-    // nesting structure as 'this'.
+    var a = JSON.stringify(other);
+    var b = JSON.stringify(this);
+    for(var x in a) if(!(isNaN(a[x]))) a = a.replace(a[x],'n');
+    for(var y in b) if(!(isNaN(b[y]))) b = b.replace(b[y],'n');
 
-    // Note: You are given a function isArray(o) that returns
-    // whether its argument is an array.
+    var returnVal = (a == b) ? true : false;
+    return returnVal;
 };
 
-[ 1, 1, 1 ].sameStructureAs( [ 2, 2, 2 ] );
+console.log([ 1, 1, 1 ].sameStructureAs( [ 2, 2, 2 ] ));
+
+console.log([1,'[',']'].sameStructureAs( ['[',']',1] ));
