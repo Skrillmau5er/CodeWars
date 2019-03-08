@@ -7,5 +7,15 @@ moveZeros([false,1,0,1,2,0,1,3,"a"]) // returns[false,1,1,2,1,3,"a",0,0]
 */
 
 var moveZeros = function (arr) {
-    // TODO: Program me
-  }
+    fixedArr = [];
+    zeroArr = [];
+    for(let i in arr){
+        (arr[i] === 0) ? zeroArr.push(0) : fixedArr.push(arr[i]);
+    }
+    while(zeroArr.length > 0){
+        fixedArr.push(zeroArr.pop());
+    }
+    return fixedArr;
+}
+
+console.log(moveZeros([false,1,0,1,2,0,1,3,"a"]));
