@@ -23,18 +23,23 @@ result should == "apples, pears\ngrapes\nbananas"
 
 function solution(input, markers) {
   for(var i in markers){
-    while(input.indexOf(markers[i])){
+    var j = 0;
+    while(input.indexOf(markers[i]) != -1 && j < 2){
+      console.log(i);
       let first = input.substring(0,input.indexOf(markers[i]));
-      let second = input.substring(input.indexOf(markers[i]), (input.indexOf('\n')) ? input.indexOf('\n') : input.length);
-      if(input.indexOf('\n')){
-        var third = input.substring(input.indexOf('\n') + 1, input.length);
+      let second = input.substring(input.indexOf(markers[i]), (input.indexOf('\n',input.indexOf(markers[i])) > 0) ? input.indexOf('\n') : input.length);
+      if(input.indexOf('\n',input.indexOf(markers[i]))){
+        var third = input.substring(input.indexOf('\n', input.indexOf(markers[i])), input.length);
       }
       input = first + third;
-      console.log(first);
-      console.log(second);
-      console.log(third);
+      console.log("first: " + first);
+      console.log("second: " + second);
+      console.log("third: " + third);
+      console.log("\nInput: " + JSON.stringify(input));
+      third = '';
+      j++;
     }
-  }
+}
 };
 
 solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"]);
