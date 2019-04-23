@@ -10,22 +10,11 @@ The maximum time never exceeds 359999 (99:59:59)
 You can find some examples in the test fixtures.
 '''
 
-def make_readable(seconds):
-    hours = seconds / 3600
-    hours = str(int(hours))
-    seconds = seconds % 3600
-    minutes = seconds / 60
-    minutes = str(int(minutes))
-    seconds = str(seconds % 60)
-    if len(hours) < 2:
-        hours = "0" + hours
-    if len(minutes) < 2:
-        minutes = "0" + minutes
-    if len(seconds) < 2:
-        seconds = "0" + seconds
-    time = hours + ':' + minutes + ':' + seconds
-    return time
-        
-
+def make_readable(s):
+    return '{:02}:{:02}:{:02}'.format(s // 3600, s // 60 % 60, s % 60)
 
 print(make_readable(454545))
+print(make_readable(0))
+print(make_readable(60))
+print(make_readable(359999))
+print(make_readable(12345))
