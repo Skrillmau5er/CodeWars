@@ -32,8 +32,13 @@ det(M) = a * det(a_minor) - b * det(b_minor) + c * det(c_minor) - d * det(d_mino
 '''
 
 def determinant(matrix):
-    return
-
-
-#Test.assert_equals(determinant([[1]]), 1, "Determinant of a 1 x 1 matrix yields the value of the one element")
-#Test.assert_equals(determinant(m1), -1, "Should return 1 * 5 - 3 * 2, i.e., -1 ")
+    if len(matrix) == 1:
+        return matrix[0][0]
+    matArr = []
+    for x in range(0, len(matrix)):
+        matArr.append(matrix[0][x] * matrix[len(matrix) -1][(len(matrix) - 1) - x])
+    
+    return sum
+#print(determinant([[1]]))
+print(determinant([[2,45],[45,2]]))
+#print(determinant([[1,1,1],[1,1,1],[1,1,1]]))
